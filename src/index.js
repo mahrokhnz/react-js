@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Laptop from './projects/laptop/index';
 import Layout from './App'
+import './index.css'
 
 export default function App() {
     return (
