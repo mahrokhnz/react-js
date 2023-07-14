@@ -10,7 +10,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/react-js" element={<Layout />} />
-        <Route path="/my-laptop" element={<Laptop />} />
+        <Route path="/react-js/my-laptop" element={<Laptop />} />
       </Routes>
     </BrowserRouter>
   );
