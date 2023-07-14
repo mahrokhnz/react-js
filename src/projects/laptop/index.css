@@ -1,0 +1,118 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.laptop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 1000px;
+  border: 5px #C0C0C0 solid;
+  border-radius: 20px;
+  background-color: #C0C0C0;
+}
+
+.screenWrapper {
+  display: flex;
+  justify-content: center;
+  width: 1000px;
+  height: 400px;
+  background-color: black;
+  border-radius: 15px 15px 0 0;
+}
+
+.screen {
+  flex-grow: 1;
+  padding: 10px;
+  margin: 30px;
+  box-sizing: border-box;
+  font-size: 30px;
+  color: gray;
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  flex-grow: 1;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(6, 24, 44, 0.4) 0 0 0 2px, rgba(6, 24, 44, 0.65) 0 4px 6px -1px, rgba(255, 255, 255, 0.08) 0 1px 0 inset;
+  border-radius: 10px;
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.button span {
+  user-select: none;
+  user-focus: none;
+  user-focus-key: none;
+}
+
+.backspace {
+  width: 100px;
+}
+
+.tab {
+  width: 80px;
+}
+
+.slash {
+  width: 75px;
+}
+
+.capsLock {
+  position: relative;
+  width: 90px;
+}
+
+.light {
+  opacity: 0;
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50px;
+  background: yellow;
+  box-shadow: rgba(17, 12, 46, 0.15) 0 48px 100px 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.on {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.enter {
+  width: 130px;
+}
+
+.shift {
+  width: 140px;
+}
+
+.space {
+  width: 810px;
+}
+
+.active {
+  background: #fff;
+ }
