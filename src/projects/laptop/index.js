@@ -126,8 +126,6 @@ function LaptopApp() {
     setScreenValue(value ? value : "");
   }, []);
 
-  console.log(onUpper);
-
   return (
     <main className="laptop" onKeyDown={keyDownHandler} onKeyUp={keyUpHandler}>
       <div className="screenWrapper" tabIndex={1}>

@@ -1,0 +1,7 @@
+.editor {
+    height: 700px;
+    padding: 10px;
+    border: 1px #95a5a6 solid;
+    border-radius: 12px;
+    direction: ltr;
+}

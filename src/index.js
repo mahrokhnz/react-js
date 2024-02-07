@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Laptop from "./projects/laptop/index";
 import Layout from "./App";
 import "./index.css";
+import Laptop from "./projects/laptop/index";
+import MarkdownEditor from "./projects/markdown_editor";
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
       <Routes>
         <Route path="/react-js" element={<Layout />} />
         <Route path="/react-js/my-laptop" element={<Laptop />} />
+        <Route path="/react-js/markdown-editor" element={<MarkdownEditor />} />
       </Routes>
     </BrowserRouter>
   );

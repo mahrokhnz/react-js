@@ -1,0 +1,39 @@
+.markdownWrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    padding: 10px;
+    direction: ltr;
+
+    .buttonsWrapper {
+        display: flex;
+        gap: 10px;
+        padding-bottom: 10px;
+
+        .stateButton {
+            height: 60px;
+            flex-grow: 1;
+            border: none;
+            outline: none;
+            background-color: #95a5a6;
+            color: #fff;
+            font-size: 20px;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+
+        .active {
+            background-color: #3498db;
+        }
+    }
+
+    .content {
+        height: 700px;
+        padding: 10px;
+        border: 1px #95a5a6 solid;
+        border-radius: 12px;
+    }
+}
