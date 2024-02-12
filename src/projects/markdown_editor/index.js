@@ -1,7 +1,8 @@
 import "./index.css";
-import {useRef, useState} from "react";
+import {useState} from "react";
 import Editor from "./components/editor";
 import Preview from "./components/preview";
+import Button from "./components/button";
 
 function MarkdownEditor() {
     const initialValue = localStorage.getItem('markdown-editor')
@@ -15,8 +16,8 @@ function MarkdownEditor() {
     return (
         <main className='markdownWrapper'>
             <header className='buttonsWrapper'>
-                <button className={`${state === 'editor' ? 'active' : ''} stateButton`} onClick={(e) => clickStateButtonHandler(e.target.textContent)}>Editor</button>
-                <button className={`${state === 'preview' ? 'active' : ''} stateButton`} onClick={(e) => clickStateButtonHandler(e.target.textContent)}>Preview</button>
+                <Button className={`${state === 'editor' ? 'active' : ''}`} state='editor' handler={clickStateButtonHandler} />
+                <Button className={`${state === 'preview' ? 'active' : ''}`} state='preview' handler={clickStateButtonHandler} />
             </header>
             {state === 'editor' ? (
                 <Editor text={editorValue} setText={setEditorValue} />
