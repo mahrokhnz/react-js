@@ -1,89 +1,90 @@
 function modifierHelper(type, match, value) {
     if (type === 'heading') {
         const number = match[1]?.length
-        value = value.replace(match[0], `<h${number}>${match[2]}</h${number}>`)
 
-        modifier(value)
+        return value.replace(match[0], `<h${number}>${match[2]}</h${number}>`)
     }
 
     if (type === 'link') {
-        value = value.replace(match[0], `<a href={match[2]}>${match[1]}</a>`)
-
-        modifier(value)
+        return value.replace(match[0], `<a href={match[2]}>${match[1]}</a>`)
     }
 
     if (type === 'bold') {
-        value = value.replace(match[0], `<b>${match[2]}</b>`)
-
-        modifier(value)
+        return value.replace(match[0], `<b>${match[2]}</b>`)
     }
 
     if (type === 'italic') {
-        value = value.replace(match[0], `<i>${match[2]}</i>`)
-
-        modifier(value)
+        return value.replace(match[0], `<i>${match[2]}</i>`)
     }
 
     if (type === 'image') {
-        value = value.replace(match[0], `<img alt=${match[1]} src=${match[2]} />`)
-
-        modifier(value)
+        return value.replace(match[0], `<img alt=${match[1]} src=${match[2]} />`)
     }
 
     if (type === 'code') {
-        value = value.replace(match[0], `<div style="border: 1px gray solid; padding: 2px">${match[1]}</div>`)
-
-        modifier(value)
+        return value.replace(match[0], `<div style="border: 1px gray solid; padding: 2px">${match[1]}</div>`)
     }
 
     if (type === 'paragraph') {
-        value = value.replace(match[0], `<p>${match[1]}\n${match[2]}</p>`)
-
-        modifier(value)
+        return value.replace(match[0], `<p>${match[1]}\n${match[2]}</p>`)
     }
 
     return value
 }
 
-export default function modifier(value) {
+export default function modifier(value, changedValue = null) {
     const headingRegex = /^(#{1,6})\s+(.*)$/gm
     const linkRegex = /^(?!!)\[(.*?)]+\(([^\)]+)\)/gm
     const boldRegex = /(\*{2})+(.*)+(\*{2})/gm
     const italicRegex = /(\*{1})+(.*)+(\*{1})/gm
     const imageRegex = /\!\[(.*?)]+\(([^\)]+)\)/gm
     const codeRegex = /`+(.*)+`/gm
-    const paragraphRegex = /\n\n+(.*)/gm
+    const paragraphRegex = /\n\n+(.*)$/gm
 
-    const headingMatch = headingRegex.exec(value)
-    const linkMatch = linkRegex.exec(value)
-    const boldMatch = boldRegex.exec(value)
-    const italicMatch = italicRegex.exec(value)
-    const imageMatch = imageRegex.exec(value)
-    const codeMatch = codeRegex.exec(value)
-    const paragraphMatch = paragraphRegex.exec(value)
+    const headingMatch = headingRegex.exec(changedValue ?? value)
+    const linkMatch = linkRegex.exec(changedValue ?? value)
+    const boldMatch = boldRegex.exec(changedValue ?? value)
+    const italicMatch = italicRegex.exec(changedValue ?? value)
+    const imageMatch = imageRegex.exec(changedValue ?? value)
+    const codeMatch = codeRegex.exec(changedValue ?? value)
+    const paragraphMatch = paragraphRegex.exec(changedValue ?? value)
 
     if (headingMatch) {
-        return modifierHelper('heading', headingMatch, value)
+        const data = modifierHelper('heading', headingMatch, changedValue ?? value)
+
+        return modifier(value, data)
     }
     else if (linkMatch) {
-        return modifierHelper('link', linkMatch, value)
+        const data = modifierHelper('link', linkMatch, value)
+
+        return modifier(value, data)
     }
     else if (boldMatch) {
-        return modifierHelper('bold', boldMatch, value)
+        const data = modifierHelper('bold', boldMatch, value)
+
+        return modifier(value, data)
     }
     else if (italicMatch) {
-        return modifierHelper('italic', italicMatch, value)
+        const data = modifierHelper('italic', italicMatch, value)
+
+        return modifier(value, data)
     }
     else if (imageMatch) {
-        return modifierHelper('image', imageMatch, value)
+        const data = modifierHelper('image', imageMatch, value)
+
+        return modifier(value, data)
     }
     else if (codeMatch) {
-        return modifierHelper('code', codeMatch, value)
+        const data = modifierHelper('code', codeMatch, value)
+
+        return modifier(value, data)
     }
     else if (paragraphMatch) {
-        return modifierHelper('paragraph', paragraphMatch, value)
+        const data = modifierHelper('paragraph', paragraphMatch, value)
+
+        return modifier(value, data)
     }
     else {
-        return null
+        return changedValue
     }
 }
