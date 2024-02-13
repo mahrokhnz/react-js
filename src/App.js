@@ -1,6 +1,7 @@
 import "./App.css";
 import { Link } from "react-router-dom";
 import myLaptop from "./assets/my-laptop.png";
+import markdownEditor from "./assets/markdown-editor.png";
 
 function App() {
   return (
@@ -12,6 +13,14 @@ function App() {
         >
           <Link to="/react-js/my-laptop">
             <button className="showChallenge">My Laptop</button>
+          </Link>
+        </div>
+        <div
+          className="challenge"
+          style={{ backgroundImage: `url(${markdownEditor})` }}
+        >
+          <Link to="/react-js/markdown-editor">
+            <button className="showChallenge">Markdown Editor</button>
           </Link>
         </div>
       </div>

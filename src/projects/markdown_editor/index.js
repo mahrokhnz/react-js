@@ -6,21 +6,21 @@ import Button from "./components/button";
 
 function MarkdownEditor() {
     const initialValue = localStorage.getItem('markdown-editor')
-    const [state, setState] = useState('editor')
+    const [state, setState] = useState('Editor')
     const [editorValue , setEditorValue] = useState(initialValue || '')
 
-    function clickStateButtonHandler (data) {
-        setState(data.toLowerCase())
+    function stateHandler (data) {
+        setState(data)
     }
 
     return (
         <main className='markdownWrapper'>
             <header className='buttonsWrapper'>
-                <Button className={`${state === 'editor' ? 'active' : ''}`} state='editor' handler={clickStateButtonHandler} />
-                <Button className={`${state === 'preview' ? 'active' : ''}`} state='preview' handler={clickStateButtonHandler} />
+                <Button className={`${state === 'Editor' ? 'active' : ''}`} text='Editor' handler={stateHandler} />
+                <Button className={`${state === 'Preview' ? 'active' : ''}`} text='Preview' handler={stateHandler} />
             </header>
-            {state === 'editor' ? (
-                <Editor text={editorValue} setText={setEditorValue} />
+            {state === 'Editor' ? (
+                <Editor value={editorValue} setValue={setEditorValue} />
             ) : (
                 <Preview value={editorValue}/>
             )}
@@ -29,5 +29,3 @@ function MarkdownEditor() {
 }
 
 export default MarkdownEditor;
-
-//TODO: local storage

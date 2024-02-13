@@ -1,8 +1,14 @@
 import './index.css'
 
-function Button({state, handler, className}) {
+function Button({text, handler, className}) {
+    function changeHandler(value) {
+        if (handler instanceof Function) {
+            handler(value)
+        }
+    }
+
     return (
-        <button className={`stateButton ${className}`} onClick={(e) => handler(e.target.textContent)}>{state.charAt(0).toUpperCase() + state.slice(1)}</button>
+        <button className={`stateButton ${className}`} onClick={(e) => changeHandler(e.target.textContent)}>{text}</button>
     )
 }
 

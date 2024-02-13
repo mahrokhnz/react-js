@@ -1,14 +1,14 @@
 import "./index.css";
 
-function Editor ({text, setText}) {
-    function typingHandler(e, value) {
-        setText(value)
+function Editor ({value, setValue}) {
+    function typingHandler(data) {
+        setValue(data)
 
-        localStorage.setItem('markdown-editor', value)
+        localStorage.setItem('markdown-editor', data)
     }
 
     return (
-        <textarea className='editor' name="editor" id="editor" cols="55" rows="10" value={text} onChange={(e) => typingHandler(e, e.target.value)}></textarea>
+        <textarea className='editor' name="editor" cols="55" value={value} onChange={(e) => typingHandler(e.target.value)}></textarea>
     )
 }
 
