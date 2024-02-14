@@ -1,5 +1,5 @@
 import "./index.css";
-import modifier from "./modifier";
+import modifier from "./editor_modifier/modifier";
 
 function Preview({value}) {
     return (
