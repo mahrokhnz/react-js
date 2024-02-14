@@ -8,12 +8,6 @@ export function headingHandler(match, value) {
     return modifier(value, match[2])
 }
 
-export function linkHandler(match, value) {
-    value = value.replace(match[0], `<a href={match[2]}>${match[1]}</a>`)
-
-    return modifier(value, match[1])
-}
-
 export function boldHandler(match, value) {
     value = value.replace(match[0], `<b>${match[2]}</b>`)
 
@@ -30,6 +24,12 @@ export function imageHandler (match, value) {
     value = value.replace(match[0], `<img alt=${match[1]} src=${match[2]} />`)
 
     return modifier(value, match[1] )
+}
+
+export function linkHandler(match, value) {
+    value = value.replace(match[0], `<a href=${match[2]}>${match[1]}</a>`)
+
+    return modifier(value, match[1])
 }
 
 export function codeHandler (match, value) {
