@@ -1,36 +1,21 @@
-import regexHandler from "./regex";
-import {
-    boldHandler,
-    codeHandler,
-    headingHandler,
-    imageHandler,
-    italicHandler,
-    linkHandler,
-    paragraphHandler
-} from "./handlers";
+import HeadingParser from "./handlers/heading";
+import BoldParser from "./handlers/bold";
+import ItalicParser from "./handlers/italic";
+import CodeParser from "./handlers/code";
+import ImageParser from "./handlers/image";
+import LinkParser from "./handlers/link";
+import ParagraphParser from "./handlers/paragraph";
 
-export default function modifier(value, text = null) {
-    const {title, match} = regexHandler(text ?? value)
+export default function modifier(value) {
+    let newValue = value;
 
-    if (title === 'heading') {
-        return headingHandler(match, value)
-    } else if (title === 'link') {
-        return linkHandler(match, value)
-    } else if (title === 'bold') {
-        return boldHandler(match, value)
-    } else if (title === 'italic') {
-        return italicHandler(match, value)
-    } else if (title === 'image') {
-        return imageHandler(match, value)
-    } else if (title === 'code') {
-        return codeHandler(match, value)
-    } else if (title === 'paragraph') {
-        return paragraphHandler(match, value)
-    } else {
-        if (text) {
-            return modifier(value)
-        } else {
-            return value
-        }
-    }
+    newValue = HeadingParser.process(newValue);
+    newValue = BoldParser.process(newValue);
+    newValue = ItalicParser.process(newValue);
+    newValue = ImageParser.process(newValue);
+    newValue = LinkParser.process(newValue);
+    newValue = CodeParser.process(newValue);
+    newValue = ParagraphParser.process(newValue);
+
+    return newValue
 }
