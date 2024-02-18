@@ -1,14 +1,13 @@
-const Processor = require("./process.js");
+import Processor from './process';
 
 class BoldParser extends Processor {
-    static regex = /(\*{2})+(.*)+(\*{2})/gm
+  static regex = /(\*{2})+(.*)+(\*{2})/gm;
 
-    static generate(content) {
-        const tagName = `b`;
+  static generate(content) {
+    const tagName = 'b';
 
-        return `<${tagName}>${content}</${tagName}>`;
-    }
+    return `<${tagName}>${content}</${tagName}>`;
+  }
 }
 
-
-module.exports = BoldParser;
+export default BoldParser;

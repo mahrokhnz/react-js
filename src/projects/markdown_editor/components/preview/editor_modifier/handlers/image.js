@@ -1,14 +1,13 @@
-const Processor = require("./process.js");
+import Processor from './process';
 
 class ImageParser extends Processor {
-    static regex = /\!\[(.*?)]+\(([^\)]+)\)/gm
+  static regex = /!\[(.*?)]+\(([^)]+)\)/gm;
 
-    static generate(src, content) {
-        const tagName = `img`;
+  static generate(src, content) {
+    const tagName = 'img';
 
-        return `<${tagName} alt="${content}" src="${src}"></${tagName}>`;
-    }
+    return `<${tagName} alt="${content}" src="${src}"></${tagName}>`;
+  }
 }
 
-
-module.exports = ImageParser;
+export default ImageParser;

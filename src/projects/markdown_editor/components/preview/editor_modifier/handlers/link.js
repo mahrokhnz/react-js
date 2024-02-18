@@ -1,14 +1,13 @@
-const Processor = require("./process.js");
+import Processor from './process';
 
 class LinkParser extends Processor {
-    static regex = /(?!!)\[(.*?)]+\(([^\)]+)\)/gm
+  static regex = /(?!!)\[(.*?)]+\(([^)]+)\)/gm;
 
-    static generate(content, link) {
-        const tagName = `a`;
+  static generate(content, link) {
+    const tagName = 'a';
 
-        return `<${tagName} href=${link}>${content}</${tagName}>`;
-    }
+    return `<${tagName} href=${link}>${content}</${tagName}>`;
+  }
 }
 
-
-module.exports = LinkParser;
+export default LinkParser;

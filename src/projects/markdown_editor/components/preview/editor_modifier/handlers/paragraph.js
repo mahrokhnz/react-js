@@ -1,14 +1,13 @@
-const Processor = require("./process.js");
+import Processor from './process';
 
 class ParagraphParser extends Processor {
-    static regex = /\n\n+(.*)$/gm
+  static regex = /\n\n+(.*)$/gm;
 
-    static generate(content) {
-        const tagName = `p`;
+  static generate(content) {
+    const tagName = 'p';
 
-        return `<${tagName}>${content}</${tagName}>`;
-    }
+    return `<${tagName}>${content}</${tagName}>`;
+  }
 }
 
-
-module.exports = ParagraphParser;
+export default ParagraphParser;

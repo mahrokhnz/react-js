@@ -1,14 +1,13 @@
-const Processor = require("./process.js");
+import Processor from './process';
 
-class ItalicParser extends Processor{
-    static regex = /(\*{1})+(.*)+\*{1}/gm
+class ItalicParser extends Processor {
+  static regex = /(\*{1})+(.*)+\*{1}/gm;
 
-    static generate(content) {
-        const tagName = `i`;
+  static generate(content) {
+    const tagName = 'i';
 
-        return `<${tagName}>${content}</${tagName}>`;
-    }
+    return `<${tagName}>${content}</${tagName}>`;
+  }
 }
 
-
-module.exports = ItalicParser;
+export default ItalicParser;
