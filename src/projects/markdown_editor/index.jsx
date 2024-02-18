@@ -16,8 +16,8 @@ function MarkdownEditor() {
   return (
     <main className="markdownWrapper">
       <header className="buttonsWrapper">
-        <Button className={`${state === 'Editor' ? 'active' : ''}`} text="Editor" handler={() => stateHandler} />
-        <Button className={`${state === 'Preview' ? 'active' : ''}`} text="Preview" handler={() => stateHandler} />
+        <Button className={`${state === 'Editor' ? 'active' : ''}`} text="Editor" handler={stateHandler} />
+        <Button className={`${state === 'Preview' ? 'active' : ''}`} text="Preview" handler={stateHandler} />
       </header>
       {state === 'Editor' ? (
         <Editor value={editorValue} setValue={setEditorValue} />

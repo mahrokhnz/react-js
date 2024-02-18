@@ -9,8 +9,6 @@ class Processor {
     while (match) {
       const tag = this.generate(...match.slice(1));
 
-      console.log(match.slice(2));
-
       newContent = newContent.replace(match[0], tag);
 
       match = this.regex.exec(content);
