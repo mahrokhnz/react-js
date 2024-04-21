@@ -1,8 +1,8 @@
 import './App.css';
 import { Link } from 'react-router-dom';
 import React from 'react';
-import myLaptop from './assets/my-laptop.png';
-import markdownEditor from './assets/markdown-editor.png';
+import myLaptop from './assets/images/my-laptop.png';
+import markdownEditor from './assets/images/markdown-editor.png';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
           className="challenge"
           style={{ backgroundImage: `url(${myLaptop})` }}
         >
-          <Link to="/react-js/my-laptop">
+          <Link to="/my-laptop">
             <button type="button" className="showChallenge">My Laptop</button>
           </Link>
         </div>
@@ -20,7 +20,7 @@ function App() {
           className="challenge"
           style={{ backgroundImage: `url(${markdownEditor})` }}
         >
-          <Link to="/react-js/markdown-editor">
+          <Link to="/markdown-editor">
             <button type="button" className="showChallenge">Markdown Editor</button>
           </Link>
         </div>

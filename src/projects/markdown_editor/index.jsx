@@ -1,8 +1,8 @@
 import './index.css';
 import React, { useState } from 'react';
-import Editor from './components/editor';
-import Preview from './components/preview';
-import Button from './components/button';
+import Editor from './components/editor/index.jsx';
+import Preview from './components/preview/index.jsx';
+import Button from './components/button/index.jsx';
 
 function MarkdownEditor() {
   const initialValue = localStorage.getItem('markdown-editor');
