@@ -17,6 +17,10 @@ module.exports = {
     clean: true,
   },
 
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
+
   plugins: [
     new HtmlWebpackPlugin({
       title: "Webpack App",
