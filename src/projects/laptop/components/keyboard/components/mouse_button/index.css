@@ -1,0 +1,46 @@
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(6, 24, 44, 0.4) 0 0 0 2px, rgba(6, 24, 44, 0.65) 0 4px 6px -1px, rgba(255, 255, 255, 0.08) 0 1px 0 inset;
+    border-radius: 10px;
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.button span {
+    user-select: none;
+    user-focus: none;
+    user-focus-key: none;
+}
+
+.backspace {
+    width: 100px;
+}
+
+.tab {
+    width: 80px;
+}
+
+.slash {
+    width: 75px;
+}
+
+.capsLock {
+    position: relative;
+    width: 90px;
+}
+
+.enter {
+    width: 130px;
+}
+
+.shift {
+    width: 140px;
+}
+
+.space {
+    width: 810px;
+}
