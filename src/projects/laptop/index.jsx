@@ -1,5 +1,5 @@
 import './index.css';
-import React, { useEffect, useMemo, useState } from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import Screen from "./components/screen";
 import Keyboard from "./components/keyboard";
 
@@ -31,15 +31,21 @@ function LaptopApp() {
   };
 
   useEffect(() => {
-    localStorage.setItem('capsLock', `${onUpper}`);
-    localStorage.setItem('screen', screenValue);
+    const screenValueStorage = {
+      upperCase: onUpper,
+      value: screenValue
+    }
+
+    localStorage.setItem('screen_value', JSON.stringify(screenValueStorage));
   }, [onUpper, screenValue]);
 
-  useEffect(() => {
-    const upperCase = localStorage.getItem('capsLock');
-    const value = localStorage.getItem('screen');
-    setOnUpper(upperCase ? JSON.parse(upperCase) : false);
-    setScreenValue(value || '');
+  useMemo(() => {
+    const screenValueStorage = JSON.parse(localStorage.getItem('screen_value'))
+
+    if (screenValueStorage) {
+      setOnUpper(screenValueStorage.upperCase);
+      setScreenValue(screenValueStorage.value);
+    }
   }, []);
 
   return (

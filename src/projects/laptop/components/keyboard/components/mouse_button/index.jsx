@@ -1,7 +1,7 @@
 import React from "react";
 import './index.css'
 
-function MouseButton({pressedKey, setPressedKey, onKeyClick, type, value, className='', children= ''}) {
+function MouseButton({pressedKey, setPressedKey, onKeyClick, type, value, isUpper, className= '', children}) {
     const keyDownHandler = (e) => {
         e.stopPropagation();
         e.preventDefault();
@@ -24,12 +24,12 @@ function MouseButton({pressedKey, setPressedKey, onKeyClick, type, value, classN
         <div
             className={`button ${pressedKey === type ? 'active' : ''} ${className}`}
             data-code={type}
-            data-key={value}
+            data-key={type.startsWith('Key') && isUpper ? value.toUpperCase() : value}
             onMouseDown={keyDownHandler}
             onMouseUp={keyUpHandler}
         >
             {children}
-            <span onMouseDown={(e) => e.stopPropagation()}>{value}</span>
+            <span onMouseDown={(e) => e.stopPropagation()}>{type.startsWith('Key') && isUpper ? value.toUpperCase() : value}</span>
         </div>
     )
 }
