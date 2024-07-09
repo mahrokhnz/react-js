@@ -1,0 +1,17 @@
+.dice {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    transform: rotateY(185deg) rotateX(150deg) rotateZ(315deg);
+    animation: rotate 5s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotateY(0) rotateX(45deg) rotateZ(45deg);
+    }
+    to {
+        transform: rotateY(360deg) rotateX(45deg) rotateZ(45deg);
+    }
+}

@@ -65,6 +65,8 @@ function LaptopApp() {
   const [screenValue, setScreenValue] = useState('');
   const [onUpper, setOnUpper] = useState(false);
 
+  // TODO: Refactor, Add Components
+
   const screenHandler = (code, key) => {
     if (code === 'Backspace') {
       if (screenValue.length > 0) {
