@@ -14,4 +14,7 @@ function Dice() {
     )
 }
 
+// TODO: make roll random
+// TODO: add button
+
 export default Dice;
