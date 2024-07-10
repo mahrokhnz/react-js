@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -6,6 +6,8 @@
 
 .diceRolling {
     display: flex;
+    flex-direction: column;
+    gap: 180px;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -17,5 +19,23 @@
         justify-content: space-between;
         gap: 180px;
         flex-grow: 1;
+    }
+
+    .rolling {
+        align-self: center;
+        width: 150px;
+        height: 50px;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+        background-color: #da0060;
+        color: #fff;
+        font-size: 20px;
+        transition: background-color 0.3s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+             background-color: #a30148;
+         }
     }
 }

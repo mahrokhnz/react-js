@@ -4,7 +4,6 @@
     height: 200px;
     transform-style: preserve-3d;
     transform: rotateY(185deg) rotateX(150deg) rotateZ(315deg);
-    animation: rotate 5s linear infinite;
 }
 
 @keyframes rotate {

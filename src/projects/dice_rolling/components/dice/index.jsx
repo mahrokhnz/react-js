@@ -1,9 +1,9 @@
 import Side from "./components/side";
 import './index.css';
 
-function Dice() {
+function Dice({className = '', innerRef}) {
     return (
-        <main className='dice'>
+        <main className={`dice ${className}`} ref={innerRef}>
             <Side number='one' />
             <Side number='two' />
             <Side number='three' />
@@ -13,8 +13,5 @@ function Dice() {
         </main>
     )
 }
-
-// TODO: make roll random
-// TODO: add button
 
 export default Dice;
